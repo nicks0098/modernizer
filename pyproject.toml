@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modernizer"
+version = "0.1.0"
+description = "Verified legacy-code migration: Python 2 to 3 and Java 8 to 17/21"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["fissix"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+modernizer = "modernizer.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["modernizer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["examples", ".git", "build", "*.egg-info"]
